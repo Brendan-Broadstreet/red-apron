@@ -1,8 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,10 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 
 import { CheckoutComponent } from './checkout/checkout.component';
+
+import { AdminComponent } from './admin/admin.component';
+
+
 import { SignupComponent } from './signup/signup.component';
 
 import { HeaderComponent } from './header/header.component';
@@ -67,6 +72,7 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +83,9 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     ProfileComponent,
     CartComponent,
     CheckoutComponent,
+
+    AdminComponent
+
     SignupComponent,
 
     HeaderComponent,
@@ -88,13 +97,21 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     CartComponent,
     SharedComponent,
     CartItemComponent,
-    ProductItemComponent
+    ProductItemComponent,
+
 
   ],
   imports: [
     FlexLayoutModule,
     AppRoutingModule,
     BrowserModule,
+
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+
 
     AppRoutingModule,
  
@@ -131,9 +148,10 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
     
     
+
 
   ],
   providers: [],
