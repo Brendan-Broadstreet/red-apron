@@ -1,1 +1,17 @@
-<p>product-item works!</p>
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{productItem.name}}</mat-card-title>
+      <mat-card-subtitle>Classic Meal</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image id="picpic" [src]="productItem.imageUrl">
+    <p>{{ productItem.price | currency :"USD"}}</p>
+    <mat-card-content>
+      <p>
+        {{productItem.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="handleAddToCart()" >Add to Cart</button>
+      <button mat-button>Details</button>
+    </mat-card-actions>
+  </mat-card>
