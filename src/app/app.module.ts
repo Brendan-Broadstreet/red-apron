@@ -1,7 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PackageMealsComponent } from './package-meals/package-meals.component';
+import { CustomMealsComponent } from './custom-meals/custom-meals.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+
+import { CheckoutComponent } from './checkout/checkout.component';
+import { SignupComponent } from './signup/signup.component';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -58,6 +70,15 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
 @NgModule({
   declarations: [
     AppComponent,
+
+    PackageMealsComponent,
+    CustomMealsComponent,
+    LoginComponent,
+    ProfileComponent,
+    CartComponent,
+    CheckoutComponent,
+    SignupComponent,
+
     HeaderComponent,
     FooterComponent,
     NavComponent,
@@ -68,11 +89,18 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     SharedComponent,
     CartItemComponent,
     ProductItemComponent
+
   ],
   imports: [
     FlexLayoutModule,
     AppRoutingModule,
     BrowserModule,
+
+    AppRoutingModule,
+ 
+    FormsModule,
+    HttpClientModule,
+
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatButtonModule,
@@ -106,6 +134,7 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     MatPaginatorModule
     
     
+
   ],
   providers: [],
   bootstrap: [AppComponent]

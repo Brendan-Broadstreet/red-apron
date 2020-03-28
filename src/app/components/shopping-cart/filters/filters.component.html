@@ -1,28 +1,16 @@
 <div class="example-container">
-    <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
+  <img id="dIcon" src="https://cdn4.iconfinder.com/data/icons/service/500/tableware_plate_knife_fork_heart_cook_cooking_eat_eating_food-512.png" alt="tableware plate knife fork hear">
+  <h1>Filter by Entree</h1>
     <mat-form-field appearance="fill">
       <mat-label>Select</mat-label>
       <mat-select>
-        <mat-option value="option">Option</mat-option>
+        <mat-option value="All">All</mat-option>
+        <mat-option value="Chicken">Chicken</mat-option>
+        <mat-option value="Beef">Beef</mat-option>
+        <mat-option value="Pork">Pork</mat-option>
+        <mat-option value="Vegitarian">Vegitarian</mat-option>
       </mat-select>
     </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Textarea</mat-label>
-      <textarea matInput></textarea>
-    </mat-form-field>
-    <br>
-    <p>
-      <mat-form-field appearance="outline" id="lastOne">
-        <mat-label>Outline form field</mat-label>
-        <input matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
-    </p>
   </div>
     
-    <button mat-raised-button color="accent">Filter by Price</button>
+    <button mat-raised-button color="accent">Sort</button>

@@ -1,1 +1,7 @@
-<p>product-------------list works!</p>
+<div class="container" fxLayout="row wrap">
+    <div fxFlex="25%" *ngFor="let product of productList" id="inBetween" >
+        <app-product-item [productItem]="product" id="theItem" ></app-product-item>
+    </div>
+    
+</div> 
+

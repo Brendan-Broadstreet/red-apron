@@ -1,3 +1,11 @@
 #lastOne{
     background-color: dimgray;
 }
+
+.example-container{
+    margin-top: 1rem;
+}
+
+#dIcon{
+    height: 50px;
+}
