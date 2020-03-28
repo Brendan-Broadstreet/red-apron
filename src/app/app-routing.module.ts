@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component'
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
+
   {
     path: 'login',
     component: LoginComponent
@@ -23,6 +25,9 @@ const routes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full'
   }
+
+  {path: 'shopping-cart', component: ShoppingCartComponent},
+
 ];
 
 @NgModule({
