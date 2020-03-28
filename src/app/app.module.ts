@@ -84,7 +84,7 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     CartComponent,
     CheckoutComponent,
 
-    AdminComponent
+    AdminComponent,
 
     SignupComponent,
 
