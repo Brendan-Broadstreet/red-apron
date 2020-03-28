@@ -24,7 +24,7 @@ const routes: Routes = [
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'
-  }
+  },
 
   {path: 'shopping-cart', component: ShoppingCartComponent},
 
