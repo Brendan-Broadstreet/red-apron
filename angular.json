@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "red-apron"
+  "defaultProject": "red-apron",
+  "cli": {
+    "analytics": false
+  }
 }
