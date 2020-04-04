@@ -1,29 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { FormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
-
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { PackageMealsComponent } from './package-meals/package-meals.component';
 import { CustomMealsComponent } from './custom-meals/custom-meals.component';
 import { LoginComponent } from './login/login.component';
+
 import { ProfileComponent } from './profile/profile.component';
-
 import { CheckoutComponent } from './checkout/checkout.component';
-
 import { AdminComponent } from './admin/admin.component';
 
-
 import { SignupComponent } from './signup/signup.component';
-
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { NavComponent } from './nav/nav.component';
 
+import { NavComponent } from './nav/nav.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { FiltersComponent } from './components/shopping-cart/filters/filters.component';
 
@@ -76,29 +71,30 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
 @NgModule({
   declarations: [
     AppComponent,
-
     PackageMealsComponent,
     CustomMealsComponent,
+
     LoginComponent,
     ProfileComponent,
     CartComponent,
+
     CheckoutComponent,
-
     AdminComponent,
-
     SignupComponent,
 
     HeaderComponent,
     FooterComponent,
     NavComponent,
+
     ShoppingCartComponent,
     FiltersComponent,
     ProductListComponent,
+
     CartComponent,
     SharedComponent,
     CartItemComponent,
-    ProductItemComponent,
 
+    ProductItemComponent,
 
   ],
   imports: [
@@ -109,50 +105,54 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
     MatButtonModule,
     MatInputModule,
-
-
     AppRoutingModule,
  
     FormsModule,
     HttpClientModule,
-
     BrowserAnimationsModule,
+
     MatCheckboxModule,
     MatButtonModule,
     MatInputModule,
+
     MatAutocompleteModule,
     MatDatepickerModule,
     MatFormFieldModule,
+
     MatRadioModule,
     MatSelectModule,
     MatSliderModule,
+
     MatSlideToggleModule,
     MatMenuModule,
     MatSidenavModule,
+
     MatToolbarModule,
     MatListModule,
     MatGridListModule,
+
     MatCardModule,
     MatStepperModule,
     MatTabsModule,
+
     MatExpansionModule,
     MatButtonToggleModule,
     MatChipsModule,
+
     MatIconModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
+
     MatDialogModule,
     MatTooltipModule,
     MatSnackBarModule,
+
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    
-    
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
