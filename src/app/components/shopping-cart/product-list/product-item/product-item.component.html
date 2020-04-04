@@ -5,9 +5,11 @@
     </mat-card-header>
     <img mat-card-image id="picpic" [src]="productItem.imageUrl">
     <p>{{ productItem.price | currency :"USD"}}</p>
+    <i *ngIf="addedToFavlist" class="fas fa-heart" (click)="handleRemoveFromFavlist()"></i>
+    <i *ngIf="!addedToFavlist" class="far fa-heart" (click)="handleAddToFavlist()"></i>
     <mat-card-content>
       <p>
-        {{productItem.description}}
+        {{productItem.description | slice: 0:80 }}...
       </p>
     </mat-card-content>
     <mat-card-actions>
