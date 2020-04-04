@@ -1,0 +1,21 @@
+.api-endpoint {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.admin-container {
+    background-color: #696969;
+}
+
+.recipeID-card {
+    max-width: 400px;
+}
+
+.mainCourse-recipeSearch {
+    max-width: 500px;
+}
+
+.sideItem-recipe {
+    max-width: 500px;
+}

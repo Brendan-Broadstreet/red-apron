@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component'
-
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
 
@@ -17,6 +17,10 @@ const routes: Routes = [
     component: SignupComponent
   },
   {
+    path: 'admin',
+    component: AdminComponent
+  },
+  {
     path: 'cart',
     component: CartComponent
   },
@@ -26,7 +30,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
-  {path: 'shopping-cart', component: ShoppingCartComponent},
+  { path: 'shopping-cart', component: ShoppingCartComponent },
 
 ];
 
