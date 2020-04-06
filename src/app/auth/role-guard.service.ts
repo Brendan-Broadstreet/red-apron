@@ -4,7 +4,9 @@ import {
   CanActivate,
   ActivatedRouteSnapshot
 } from '@angular/router';
+
 import { AuthService } from './auth.service';
+
 import decode from 'jwt-decode';
 
 @Injectable()
