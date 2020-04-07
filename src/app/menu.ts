@@ -1,6 +1,6 @@
 export interface Menu {
     id?: number;
-    recipe_title: string;
+    recipe_title?: string;
     recipe_image?: string;
     recipe_category?: string;
     recipe_ingredients?: any[]; // Json stringify to make a Json next Json parse for user
@@ -15,8 +15,11 @@ export interface MainMenu {
     menu: MenuItem;
 }
 
+// export interface EntreeMenu {
+//     combomenu: EntreeItemMenu;
+// }
 export interface SideMenu {
-    menu: MenuItem;
+    combomenu: SideItemMenu;
 }
 
 export interface MenuItem {
@@ -34,4 +37,28 @@ export interface MenuItem {
 
 export interface MainMenuResults {
     results?: any[];
+}
+
+export interface EntreeItemMenu {
+    name: string;
+    img: string;
+    category: string;
+    ingredients: string;
+    instructions: string;
+    cooktime: number;
+    preptime: number;
+    servings: number;
+    price: string;
+}
+
+export interface SideItemMenu {
+    name: string;
+    img: string;
+    category: string;
+    ingredients: string;
+    instructions: string;
+    cooktime: number;
+    preptime: number;
+    servings: number;
+    price: string;
 }

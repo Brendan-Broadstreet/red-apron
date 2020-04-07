@@ -23,4 +23,14 @@ export class PostService {
     // tslint:disable-next-line:max-line-length
     return this.httpClient.post<MainMenu>('http://localhost:4000/api/menu', menu, { headers: this.httpOptions });
   }
+
+  // postEntreeComboMenu(combomenu: EntreeMenu) {
+  //   // tslint:disable-next-line:max-line-length
+  //   return this.httpClient.post<MainMenu>('http://localhost:4000/api/combo', combomenu, { headers: this.httpOptions });
+  // }
+
+  // postSideItemComboMenu(combomenu: SideMenu) {
+  //   // tslint:disable-next-line:max-line-length
+  //   return this.httpClient.post<MainMenu>('http://localhost:4000/api/combo', combomenu, { headers: this.httpOptions });
+  // }
 }
