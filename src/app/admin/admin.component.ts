@@ -112,7 +112,7 @@ export class AdminComponent implements OnInit {
       this.Food.recipe_servings = response.servings;
       this.Food.recipe_preptime = response.preptime;
       this.Food.recipe_price = response.price;
-    })
+    });
   }
 
   fullMenuToggle() {
@@ -132,24 +132,4 @@ export class AdminComponent implements OnInit {
     this.showCard2 = false;
     this.showCard3 = true;
   }
-
-  // postEntreeItem() {
-  //   // tslint:disable-next-line:prefer-const
-  //   let combomenu: EntreeItemMenu = {
-  //     name: this.EntreeMenu.recipe_title,
-  //     img: this.EntreeMenuItem.recipe_image,
-  //     category: this.category,
-  //     ingredients: JSON.stringify(this.Food.recipe_ingredients),
-  //     instructions: JSON.stringify(this.Food.recipe_instructions),
-  //     cooktime: this.Food.recipe_cooktime,
-  //     preptime: this.Food.recipe_preptime,
-  //     servings: this.Food.recipe_servings,
-  //     price: this.price
-  //   };
-  //   this.postService.postEntreeComboMenu(combomenu).subscribe(response => {
-  //     console.log(response);
-  //   });
-  // }
-
-
 }
