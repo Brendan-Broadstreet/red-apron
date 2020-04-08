@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
@@ -9,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+
 import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
@@ -24,6 +26,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
   },
   {
     path: 'cart',
@@ -49,10 +55,14 @@ const routes: Routes = [
     redirectTo: '/header',
     pathMatch: 'full'
   },
+
   {
     path: '**',
     redirectTo: ''
   }
+
+
+  
 
 ];
 
