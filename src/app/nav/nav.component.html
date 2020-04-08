@@ -1,8 +1,9 @@
 <mat-toolbar id="navbar">
     <div><a routerLink='/header' routerLinkActive='active' style="color: white;">Home</a></div>
     <div>
-      <span><a routerLink='/login' routerLinkActive='active' style="color: white;">Login</a></span>
-      <span><a routerLink='/cart' routerLinkActive='active' style="color: white;">Cart</a></span>
+      <span><a *ngIf="notLoggedIn()" routerLink='/login' routerLinkActive='active' style="color: white;">Login</a></span>
+      <span><a *ngIf="!notLoggedIn()" routerLink='/login' routerLinkActive='active' style="color: white;">Logout</a></span>
+      <span><a *ngIf="!notLoggedIn()" routerLink='/cart' routerLinkActive='active' style="color: white;">Cart</a></span>
     </div>
     <div>
         <span>About</span>
