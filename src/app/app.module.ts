@@ -3,6 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './auth/token.interceptor';
+import { AuthService } from './auth/auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
+import { RoleGuardService } from './auth/role-guard.service';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -60,6 +67,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
+import { from } from 'rxjs';
+
 
 @NgModule({
   declarations: [
@@ -94,15 +103,12 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
 
     MatButtonModule,
     MatInputModule,
-    AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
+
 
     MatCheckboxModule,
     MatButtonModule,
@@ -145,7 +151,18 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     MatPaginatorModule,
 
   ],
-  providers: [],
+  providers: [
+    RoleGuardService,
+    AuthGuardService,
+    AuthService,
+    JwtHelperService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
