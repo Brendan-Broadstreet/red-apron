@@ -25,8 +25,8 @@ export class RoleGuardService implements CanActivate {
 
     // decode the token to get its payload
     const tokenPayload = decode(token);
-    console.log(tokenPayload);
-    console.log('Checking User Role');
+    // console.log(tokenPayload);
+    // console.log('Checking User Role');
 
     if (
       !this.auth.isAuthenticated() ||

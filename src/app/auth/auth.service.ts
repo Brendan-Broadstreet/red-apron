@@ -8,11 +8,11 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
 
-    console.log('Checking token expiration');
+    // console.log('Checking token expiration');
 
     const token = localStorage.getItem('token');
 
-    console.log('Token not expired is ' + !this.jwtHelper.isTokenExpired(token));
+    // console.log('Token not expired is ' + !this.jwtHelper.isTokenExpired(token));
 
     // check whether the token is expired and return
     //  true or false
