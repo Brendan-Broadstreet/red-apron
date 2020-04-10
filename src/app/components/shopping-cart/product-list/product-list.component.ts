@@ -13,7 +13,7 @@ import { productsUrl } from 'src/app/config/api';
 export class ProductListComponent implements OnInit {
 
   productList: Product[] = []
-  favlist: number[] = []
+  favlist: any[] = []
 
   constructor(
     private productService: ProductService,
@@ -21,14 +21,13 @@ export class ProductListComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-   this.loadProducts();
-   this.loadFavlist();
+  this.loadProducts();
+  this.loadFavlist();
   }
   
   loadProducts(){
-     this.productService.getProducts().subscribe((products) => {
+    this.productService.getProducts().subscribe((products) => {
       this.productList = products;
-      
     })
   }
 

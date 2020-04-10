@@ -23,7 +23,7 @@ export class FavlistService {
   }
 
   addToFavlist(productId){
-    return this.http.post(favlistUrl, { id: productId })
+    return this.http.post(favlistUrl, {cart: { prodcutId: productId }})
   }
 
 removeFromFavlist(productId){
