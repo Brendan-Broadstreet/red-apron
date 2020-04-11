@@ -1,2 +1,10 @@
+mat-card{
+    width: 95%;
+    margin: 1rem;
 
- 
+}
+button{
+    width: auto;
+    margin: 1rem;
+}
+

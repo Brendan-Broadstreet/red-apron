@@ -1,5 +1,10 @@
 <mat-toolbar id="navbar">
-    <div>Home</div>
+    <div><img src="../../assets/favicon-32x32.png" alt=""><a routerLink='/header' routerLinkActive='active' style="color: white;">Home</a></div>
+    <div>
+      <span><a *ngIf="notLoggedIn()" routerLink='/login' routerLinkActive='active' style="color: white;">Login</a></span>
+      <span><a *ngIf="!notLoggedIn()" routerLink='/login' routerLinkActive='active' style="color: white;">Logout</a></span>
+      <span><a *ngIf="!notLoggedIn()" routerLink='/shopping-cart' routerLinkActive='active' style="color: white;">Menu</a></span>
+    </div>
     <div>
         <span>About</span>
         <span>Profile</span>

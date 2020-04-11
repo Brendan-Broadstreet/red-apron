@@ -11,7 +11,9 @@ export class LoginComponent implements OnInit {
   password: string;
   constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    localStorage.removeItem('token');
+  }
 
   login() {
     const formData = {
