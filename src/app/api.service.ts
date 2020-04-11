@@ -19,6 +19,11 @@ export class ApiService {
     return this.httpClient.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeID}/information`, { headers: this.httpOptions });
   }
 
+  getFullMenuItem(entreeItem: string): any {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?&number=10&offset=0&type=main%20course&instructionsRequired=true&query=${entreeItem}`, { headers: this.httpOptions });
+  }
+
   getMainCourse(mainCourse: string): any {
     // tslint:disable-next-line:max-line-length
     return this.httpClient.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?&number=10&offset=0&type=main%20course&instructionsRequired=true&query=${mainCourse}`, { headers: this.httpOptions });

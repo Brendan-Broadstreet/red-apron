@@ -1,17 +1,78 @@
 <div class="admin-container">
-    <h2>Find Recipe</h2>
-    <mat-label>Recipe ID</mat-label>
-    <input matInput placeholder="ID" type="string" id="recipeIDSearch" [(ngModel)]="recipeID">
+    <h2>Full Menu Item Search</h2>
+    <input matInput type="string" [(ngModel)]="entreeItem">
+    <button mat-raised-button color="primary" (click)='fullMenuGet()'>View Menu Item</button>
+    <mat-card class="fullMenuItem-recipe">
+        <mat-card-header>
+            <mat-card-title>Full Menu Item ID</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <li *ngFor='let items of FullMenuResults'>
+                <button mat-stroked-button color='primary' id="selectSide"
+                    (click)='inputFullMenuItem(items.id);fullMenuToggle()'>View
+                    Details</button>
+                {{items.id}}
+                {{items.title}}
+            </li>
+        </mat-card-content>
+        <mat-card class="fullMenuItemCard" *ngIf='showCard'>
+            <mat-card-header>
+                <mat-card-title>Recipe</mat-card-title>
+            </mat-card-header>
+            <h3>{{Food.recipe_servings}} servings</h3>
+            <img mat-card-image src="{{Food.recipe_image}}" alt="Photo">
+            <mat-card-content>
+                <h2>Ingredients</h2>
+                <ul>
+                    <li *ngFor='let ingredient of Food.recipe_ingredients'>
+                        {{ingredient.originalString}}
+                    </li>
+                </ul>
+                <br>
+                <h2>Instructions</h2>
+                <ul>
+                    <li *ngFor='let instruction of Food.recipe_instructions'>
+                        {{instruction.step}}
+                    </li>
+                    <li>
+                        Recipe will take a total of {{Food.recipe_cooktime}} minutes to cook.
+                    </li>
+                </ul>
+                <h3>Price</h3>
+                <input matInput placeholder="Price" type="string" [(ngModel)]="price">
+                <br>
+                <br>
+                <mat-label>Select an category</mat-label>
+                <br>
+                <mat-select disableRipple [(ngModel)]="category">
+                    <mat-option value="Steak">Steak</mat-option>
+                    <mat-option value="Chicken">Chicken</mat-option>
+                    <mat-option value="Pork">Pork</mat-option>
+                    <mat-option value="Seafood">Seafood</mat-option>
+                    <mat-option value="Vegetable">Vegetables</mat-option>
+                    <mat-option value="Beef">Beef</mat-option>
+                    <mat-option value="Vegan">Vegan</mat-option>
+                </mat-select>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-stroked-button color='primary' (click)='postMenu()'>Send to Menu</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-card>
     <br>
     <br>
-    <button mat-raised-button color="primary" (click)='grab();fullMenuToggle()'>View Recipe</button>
+    <!-- <h2>Full Menu Item</h2>
+    <mat-label>Entree Item</mat-label>
+    <input matInput type="string" id="entreeItemSearch" [(ngModel)]="entreeItem">
+    <br>
+    <br>
+    <button mat-raised-button color="primary" (click)='fullMenuGet();fullMenuToggle()'>View Recipe</button>
     <br>
     <mat-card class="recipeID-card" *ngIf='showCard'>
         <mat-card-header>
-            <mat-card-title>{{Food.recipe_title}}</mat-card-title>
+            <mat-card-title>{{FullMenuResults.title}}</mat-card-title>
         </mat-card-header>
-        <h3>{{Food.recipe_servings}} servings</h3>
-        <img mat-card-image src="{{Food.recipe_image}}" alt="Photo">
+        <img mat-card-image src="{{FullMenuResults.image}}" alt="Photo">
         <mat-card-content>
             <h2>Ingredients</h2>
             <ul>
@@ -49,9 +110,10 @@
             <button mat-button (click)='postMenu()'>Send to Menu</button>
             <button mat-button>SHARE</button>
         </mat-card-actions>
-    </mat-card>
+    </mat-card> -->
     <br>
-    <mat-label>Find Main Course</mat-label>
+    <h2>Find Main Course</h2>
+    <mat-label>Main Course</mat-label>
     <input matInput placeholder="Steak, Chicken, Shrimp, Fish, etc." type="string" [(ngModel)]="mainCourse">
     <br>
     <button mat-raised-button color="primary" (click)='findMainCourse()'>Look Recipie ID
@@ -111,14 +173,15 @@
     <br>
     <h2>Find Side Dish</h2>
     <input matInput placeholder="Salad, Potatoes, Vegetables, etc." type="string" [(ngModel)]="sideDish">
-    <button mat-raised-button color="primary" (click)='findSideDish();sideItemToggle()'>View Side Item</button>
+    <button mat-raised-button color="primary" (click)='findSideDish()'>View Side Item</button>
     <mat-card class="sideItem-recipe">
         <mat-card-header>
             <mat-card-title>Side Item ID</mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <li *ngFor='let items of SideMenuResults'>
-                <button mat-stroked-button color='primary' id="selectSide" (click)='inputSideItem(items.id)'>Select
+                <button mat-stroked-button color='primary' id="selectSide"
+                    (click)='inputSideItem(items.id);sideItemToggle()'>Select
                     Side</button>
                 {{items.id}}
                 {{items.title}}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ProductService } from 'src/app/services/product.service'
+import { ProductService } from 'src/app/services/product.service';
 import { Product } from 'src/app/models/product';
 import { FavlistService } from 'src/app/services/favlist.service';
 import { productsUrl } from 'src/app/config/api';
@@ -12,15 +12,18 @@ import { productsUrl } from 'src/app/config/api';
 })
 export class ProductListComponent implements OnInit {
 
+
   productList: Product[] = []
   favlist: any[] = []
+
 
   constructor(
     private productService: ProductService,
     private favlistService: FavlistService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
+
   this.loadProducts();
   this.loadFavlist();
   }
@@ -29,12 +32,14 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe((products) => {
       this.productList = products;
     })
+
   }
 
-  loadFavlist(){
+  loadFavlist() {
     this.favlistService.getFavlist().subscribe(productsIds => {
-      console.log(productsIds)
-      this.favlist = productsIds
-  })
+      console.log(productsIds);
+      this.favlist = productsIds;
+    });
+  }
 }
 }

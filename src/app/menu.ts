@@ -62,3 +62,9 @@ export interface SideItemMenu {
     servings: number;
     price: string;
 }
+
+export interface FullMenuItems {
+    id: number;
+    title: string;
+    image: string;
+}
