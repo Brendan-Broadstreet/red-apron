@@ -36,9 +36,10 @@ export class RoleGuardService implements CanActivate {
       this.router.navigate(['login']);
       console.log('User Role is NOT Admin');
       return false;
+    } else {
+      console.log('User Role is Admin');
+      return true;
     }
-    console.log('User Role is Admin');
-    return true;
 
   }
 

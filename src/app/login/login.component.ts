@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent implements OnInit {
   email: string;
   password: string;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     localStorage.removeItem('token');
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
       res => {
         console.log(res);
         localStorage.setItem('token', res['sessionToken']);
+        this.router.navigate(['shopping-cart']);
       },
       err => {
         console.log(err);

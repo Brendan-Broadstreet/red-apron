@@ -67,7 +67,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
-import { from } from 'rxjs';
+// import { from } from 'rxjs';
 
 
 @NgModule({
@@ -75,15 +75,15 @@ import { from } from 'rxjs';
     AppComponent,
     PackageMealsComponent,
     CustomMealsComponent,
-    
+
     LoginComponent,
     ProfileComponent,
     CartComponent,
-    
+
     CheckoutComponent,
     AdminComponent,
     SignupComponent,
-    
+
     HeaderComponent,
     FooterComponent,
     NavComponent,

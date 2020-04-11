@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   password: string;
   challengequestion: string;
   admin: boolean = false;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void { }
 
@@ -33,6 +34,7 @@ export class SignupComponent implements OnInit {
       res => {
         console.log(res);
         localStorage.setItem('token', res['sessionToken']);
+        this.router.navigate(['shopping-cart']);
       },
       err => {
         console.log(err);

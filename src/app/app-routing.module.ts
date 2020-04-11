@@ -28,10 +28,6 @@ const routes: Routes = [
     component: SignupComponent
   },
   {
-    path: 'admin',
-    component: AdminComponent
-  },
-  {
     path: 'cart',
     component: CartComponent,
     canActivate: [AuthGuard]
@@ -58,11 +54,8 @@ const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: '/header'
   }
-
-
-  
 
 ];
 
