@@ -12,8 +12,10 @@ import { productsUrl } from 'src/app/config/api';
 })
 export class ProductListComponent implements OnInit {
 
-  productList: Product[] = [];
-  favlist: number[] = [];
+
+  productList: Product[] = []
+  favlist: any[] = []
+
 
   constructor(
     private productService: ProductService,
@@ -21,15 +23,16 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadProducts();
-    // this.loadFavlist();
-  }
 
-  loadProducts() {
+  this.loadProducts();
+  this.loadFavlist();
+  }
+  
+  loadProducts(){
     this.productService.getProducts().subscribe((products) => {
       this.productList = products;
+    })
 
-    });
   }
 
   loadFavlist() {
@@ -38,4 +41,5 @@ export class ProductListComponent implements OnInit {
       this.favlist = productsIds;
     });
   }
+}
 }
