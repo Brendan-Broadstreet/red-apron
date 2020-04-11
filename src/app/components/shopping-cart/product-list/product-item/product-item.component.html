@@ -1,22 +1,22 @@
 <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>{{productItem.name}}</mat-card-title>
-      <mat-card-subtitle>{{productItem.category}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image id="picpic" [src]="productItem.img">
-    <p>
-      <strong> {{ productItem.price | currency :"USD"}} </strong>
-      <i  *ngIf="addedToFavlist" class="fas fa-heart" (click)="handleRemoveFromFavlist()"></i>
-      <i  *ngIf="!addedToFavlist" class="far fa-heart" (click)="handleAddToFavlist()"></i>
+  <mat-card-header>
+    <mat-card-title>{{productItem.name}}</mat-card-title>
+    <mat-card-subtitle>{{productItem.category}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image id="picpic" [src]="productItem.img">
+  <p>
+    <strong> {{ productItem.price | currency :"USD"}} </strong>
+    <!-- <i  *ngIf="addedToFavlist" class="fas fa-heart" (click)="handleRemoveFromFavlist()"></i>
+      <i  *ngIf="!addedToFavlist" class="far fa-heart" (click)="handleAddToFavlist()"></i> -->
   </p>
-    <p>Servings: {{ productItem.servings }}</p>
-    <mat-card-content>
-      <p>Ready In: {{ productItem.cooktime  }} minutes</p>
-    </mat-card-content>
-    
-    <mat-card-actions>
-      <button mat-button (click)="handleAddToCart()">Add to Cart</button>
-      <button mat-button>Details</button>
-      <!-- Details button: Add a modal with ingredients and instructions -->
-    </mat-card-actions>
-  </mat-card>
+  <p>Servings: {{ productItem.servings }}</p>
+  <mat-card-content>
+    <p>Ready In: {{ productItem.cooktime  }} minutes</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button (click)="handleAddToCart()">Add to Cart</button>
+    <button mat-button>Details</button>
+    <!-- Details button: Add a modal with ingredients and instructions -->
+  </mat-card-actions>
+</mat-card>
