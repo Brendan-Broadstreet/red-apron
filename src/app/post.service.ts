@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MainMenu } from './menu';
+import { APIURL } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class PostService {
 
   postFood(menu: MainMenu) {
     // tslint:disable-next-line:max-line-length
-    return this.httpClient.post<MainMenu>('http://localhost:4000/api/menu', menu, { headers: this.httpOptions });
+    return this.httpClient.post<MainMenu>(`${APIURL}/api/menu`, menu, { headers: this.httpOptions });
   }
 
 }

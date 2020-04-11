@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { APIURL } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-signup',
@@ -29,7 +30,7 @@ export class SignupComponent implements OnInit {
         challengequestion: this.challengequestion
       }
     };
-    this.http.post('http://localhost:4000/api/user/signup', formData).subscribe(
+    this.http.post(`${APIURL}/api/user/signup`, formData).subscribe(
       res => {
         console.log(res);
         localStorage.setItem('token', res['sessionToken']);
