@@ -28,10 +28,6 @@ const routes: Routes = [
     component: SignupComponent
   },
   {
-    path: 'admin',
-    component: AdminComponent
-  },
-  {
     path: 'cart',
     component: CartComponent,
     canActivate: [AuthGuard]
@@ -46,7 +42,6 @@ const routes: Routes = [
     component: AdminComponent,
     canActivate: [RoleGuard],
     data: {
-      // expectedRole: 'admin'
       expectedRole: true
     }
   },
@@ -55,10 +50,9 @@ const routes: Routes = [
     redirectTo: '/header',
     pathMatch: 'full'
   },
-
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: '/header'
   }
 ];
 
