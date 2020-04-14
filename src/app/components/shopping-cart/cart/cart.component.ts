@@ -44,4 +44,12 @@ export class CartComponent implements OnInit {
       this.cartTotal += (item.qty * item.price);
     });
   }
+
+  removeCartItem(productID) {
+    this.cartService.deleteProduct(productID).subscribe(res => {
+      console.log(res)
+      this.loadCartItems()
+    })
+  }
+
 }

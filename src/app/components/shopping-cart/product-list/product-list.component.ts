@@ -24,11 +24,11 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
 
-  this.loadProducts();
-  this.loadFavlist();
+    this.loadProducts();
+    this.loadFavlist();
   }
-  
-  loadProducts(){
+
+  loadProducts() {
     this.productService.getProducts().subscribe((products) => {
       this.productList = products;
     })
@@ -37,7 +37,6 @@ export class ProductListComponent implements OnInit {
 
   loadFavlist() {
     this.favlistService.getFavlist().subscribe(productsIds => {
-      console.log(productsIds);
       this.favlist = productsIds;
     });
   }

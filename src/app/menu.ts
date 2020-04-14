@@ -15,9 +15,6 @@ export interface MainMenu {
     menu: MenuItem;
 }
 
-// export interface EntreeMenu {
-//     combomenu: EntreeItemMenu;
-// }
 export interface SideMenu {
     combomenu: SideItemMenu;
 }
@@ -67,4 +64,12 @@ export interface FullMenuItems {
     id: number;
     title: string;
     image: string;
+}
+
+export interface FullMenuData {
+    id: number;
+    name: string;
+    img: string;
+    category: string;
+    price: number;
 }

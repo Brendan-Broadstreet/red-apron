@@ -8,7 +8,7 @@
         </mat-card-header>
         <mat-card-content>
             <li *ngFor='let items of FullMenuResults'>
-                <button mat-stroked-button color='primary' id="selectSide"
+                <button mat-stroked-button color='primary' id="selectMenuItem"
                     (click)='inputFullMenuItem(items.id);fullMenuToggle()'>View
                     Details</button>
                 {{items.id}}
@@ -225,5 +225,73 @@
                 <button mat-stroked-button color='primary' (click)='postMenu()'>Send to Side to Menu</button>
             </mat-card-actions>
         </mat-card>
+    </mat-card>
+    <br>
+    <h2>Current Menu</h2>
+    <button mat-raised-button color="primary" (click)='pullFullMenu()'>Edit Menu</button>
+    <br>
+    <mat-card class="fullMenuResultsData" *ngFor='let items of ViewMenu'>
+        <!-- <mat-card-content> -->
+        <!-- <li *ngFor='let items of ViewMenu'> -->
+        <!-- {{items.id}} -->
+        <!-- {{items.name}} -->
+        <!-- {{items.img}} -->
+        <!-- {{items.category}} -->
+        <!-- {{items.price}} -->
+        <!-- <button mat-stroked-button color='primary' id="ViewMenu">Edit/Delete Item</button> -->
+        <!-- </li> -->
+        <!-- </mat-card-content> -->
+        <div *ngIf='isEditable == false'>
+            <mat-card-header>
+                <mat-card-title>{{items.name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src={{items.img}} alt="Photo of a {{items.name}}">
+            <mat-card-content>
+                <p>
+                    Category: {{items.category}}
+                    <br>
+                    Price: {{items.price | currency :"USD"}}
+                    <br>
+                    Server ID: {{items.id}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button class="editButton" mat-icon-button color='primary' (click)='editCard()'>
+                    EDIT
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <!-- <button mat-button (click)='deleteCard(items.id)'>DELETE</button> -->
+                <button mat-icon-button color="warn" (click)='deleteCard(items.id)'>
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-card-actions>
+        </div>
+        <div *ngIf='isEditable'>
+            <mat-card-header>
+                <mat-card-title>{{items.name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src={{items.img}} alt="Photo of a {{items.name}}">
+            <mat-card-content>
+                <input matInput placeholder="Price" type="string" [(ngModel)]="price">
+                <mat-select disableRipple [(ngModel)]="category">
+                    <mat-option value="Steak">Steak</mat-option>
+                    <mat-option value="Chicken">Chicken</mat-option>
+                    <mat-option value="Pork">Pork</mat-option>
+                    <mat-option value="Seafood">Seafood</mat-option>
+                    <mat-option value="Vegetable">Vegetables</mat-option>
+                    <mat-option value="Beef">Beef</mat-option>
+                    <mat-option value="Vegan">Vegan</mat-option>
+                    <mat-option value="Entree">Entree</mat-option>
+                    <mat-option value="Side">Side</mat-option>
+                </mat-select>
+            </mat-card-content>
+            <mat-card-actions>
+                <button class="editButton" mat-icon-button color='primary'
+                    (click)='updateMenu(items.id, {menu: {price: price, category: category}})'>
+                    Update Menu
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </mat-card-actions>
+        </div>
     </mat-card>
 </div>
