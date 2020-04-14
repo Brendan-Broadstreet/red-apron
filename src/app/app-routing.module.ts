@@ -16,7 +16,7 @@ import { AdminComponent } from './admin/admin.component';
 const routes: Routes = [
 
   {
-    path: 'header',
+    path: 'home',
     component: HeaderComponent
   },
   {
@@ -26,10 +26,6 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
-  },
-  {
-    path: 'admin',
-    component: AdminComponent
   },
   {
     path: 'cart',
@@ -46,19 +42,17 @@ const routes: Routes = [
     component: AdminComponent,
     canActivate: [RoleGuard],
     data: {
-      // expectedRole: 'admin'
       expectedRole: true
     }
   },
   {
     path: '',
-    redirectTo: '/header',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
-
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: '/home'
   }
 ];
 

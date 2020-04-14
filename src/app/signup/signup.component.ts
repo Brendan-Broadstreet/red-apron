@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { APIURL } from 'src/environments/environment.prod';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   password: string;
   challengequestion: string;
   admin: boolean = false;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void { }
 
@@ -27,13 +28,15 @@ export class SignupComponent implements OnInit {
         username: this.username,
         email: this.email,
         password: this.password,
-        challengequestion: this.challengequestion
+        challengequestion: this.challengequestion,
+        admin: this.admin
       }
     };
     this.http.post(`${APIURL}/api/user/signup`, formData).subscribe(
       res => {
         console.log(res);
         localStorage.setItem('token', res['sessionToken']);
+        this.router.navigate(['shopping-cart']);
       },
       err => {
         console.log(err);
