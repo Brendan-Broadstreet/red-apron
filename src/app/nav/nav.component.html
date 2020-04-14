@@ -3,8 +3,9 @@
     <div>
       <span><a mat-button mat-raised-button *ngIf="!notAdmin()" routerLink='/admin' routerLinkActive='active' style="color: Red;">Admin</a></span>
       <span><a mat-button mat-raised-button *ngIf="!notLoggedIn()" routerLink='/shopping-cart' routerLinkActive='active' style="color: white;">Menu</a></span>
-      <span><a mat-button mat-raised-button *ngIf="notLoggedIn()" routerLink='/login' routerLinkActive='active' style="color: white;">Log In</a></span>
       <span><a mat-button mat-raised-button *ngIf="!notLoggedIn()" routerLink='/login' routerLinkActive='active' style="color: white;">Log Out</a></span>
+      <span><a mat-button mat-raised-button *ngIf="notLoggedIn()" routerLink='/login' routerLinkActive='active' style="color: white;">Log In</a></span>
+      <span><a mat-button mat-raised-button *ngIf="notLoggedIn()" routerLink='/signup' routerLinkActive='active' style="color: white;">Sign Up</a></span>
     </div>
     <div>
         <span>About</span>

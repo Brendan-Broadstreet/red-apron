@@ -28,7 +28,8 @@ export class SignupComponent implements OnInit {
         username: this.username,
         email: this.email,
         password: this.password,
-        challengequestion: this.challengequestion
+        challengequestion: this.challengequestion,
+        admin: this.admin
       }
     };
     this.http.post(`${APIURL}/api/user/signup`, formData).subscribe(
