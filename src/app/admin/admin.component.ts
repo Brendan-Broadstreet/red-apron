@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Menu, MainMenu, EntreeItemMenu, SideItemMenu, FullMenuItems } from '../menu';
+import { Menu, MainMenu, EntreeItemMenu, SideItemMenu, FullMenuItems, FullMenuData } from '../menu';
 import { PostService } from '../post.service';
 
 @Component({
@@ -31,6 +31,8 @@ export class AdminComponent implements OnInit {
   // EntreeMenu: MainMenu = { menu: { name: undefined, img: undefined, category: undefined, cooktime: undefined, ingredients: undefined, instructions: undefined, preptime: undefined, price: undefined, servings: undefined } };
   // tslint:disable-next-line:max-line-length
   SideMenu: SideItemMenu = { name: undefined, img: undefined, category: undefined, cooktime: undefined, ingredients: undefined, instructions: undefined, preptime: undefined, price: undefined, servings: undefined };
+  ViewMenu: FullMenuData[] = [{ id: undefined, name: undefined, img: undefined, category: undefined, price: undefined }];
+  isEditable = false;
 
 
   ngOnInit(): void {
@@ -53,9 +55,7 @@ export class AdminComponent implements OnInit {
 
   fullMenuGet() {
     this.apiService.getFullMenuItem(this.entreeItem).subscribe(response => {
-      // console.log(response);
       this.FullMenuResults = response.results;
-      console.log(response.results);
     });
   }
 
@@ -74,9 +74,7 @@ export class AdminComponent implements OnInit {
   }
 
   findMainCourse() {
-    console.log(this.mainCourse);
     this.apiService.getMainCourse(this.mainCourse).subscribe(response => {
-      console.log(response);
       this.MenuResults = response.results;
     });
   }
@@ -153,5 +151,29 @@ export class AdminComponent implements OnInit {
     this.showCard = false;
     this.showCard2 = false;
     this.showCard3 = true;
+  }
+
+  pullFullMenu() {
+    this.apiService.getMenu().subscribe(response => {
+      this.ViewMenu = response;
+    });
+  }
+
+  deleteCard(cardID) {
+    this.apiService.deleteMenuItem(cardID).subscribe(response => {
+      this.pullFullMenu()
+    })
+  }
+
+  editCard() {
+    this.isEditable = true
+  }
+
+  updateMenu(updateID, productUpdate) {
+    this.apiService.updateMenuItems(updateID, productUpdate).subscribe(response => {
+      this.isEditable = false
+      this.pullFullMenu()
+    })
+
   }
 }

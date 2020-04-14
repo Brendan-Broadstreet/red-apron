@@ -27,18 +27,20 @@ export class ProductItemComponent implements OnInit {
   }
 
 
-  handleAddToCart(){
-
-    this.cartService.addProductToCart(this.productItem).subscribe(() => {
+  handleAddToCart(productItem: Product) {
+    console.log('handleAddToCart()')
+    console.log(productItem);
+    this.cartService.addProductToCart(this.productItem).subscribe(res => {
       this.msg.sendMsg(this.productItem);
+      // console.log(res)
     });
   }
 
-  handleAddToFavlist() {
-    this.favlistService.addToFavlist(this.productItem.id).subscribe(() => {
-      this.addedToFavlist = true;
-    });
-  }
+  // handleAddToFavlist() {
+  //   this.favlistService.addToFavlist(this.productItem.id).subscribe(() => {
+  //     this.addedToFavlist = true;
+  //   });
+  // }
 
   handleRemoveFromFavlist() {
     this.favlistService.removeFromFavlist(this.productItem.id).subscribe(() => {

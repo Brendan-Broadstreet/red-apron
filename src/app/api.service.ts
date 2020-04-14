@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FullMenuData } from './menu';
 
 
 
@@ -13,6 +14,9 @@ export class ApiService {
       'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
       'x-rapidapi-key': 'da8849d152msh02b73b3707786fcp165f34jsn7e0c2ae27ec5'
     });
+
+
+
 
   getFood(recipeID: string): any {
     // tslint:disable-next-line:max-line-length
@@ -44,4 +48,26 @@ export class ApiService {
     return this.httpClient.get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${sideItemID}/information`, { headers: this.httpOptions });
   }
 
+  getMenu(): any {
+    return this.httpClient.get('http://localhost:4000/api/menu/myrecipes');
+  }
+
+
+  deleteMenuItem(cardID): any {
+    return this.httpClient.delete(`http://localhost:4000/api/menu/delete/${cardID}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    })
+  }
+
+  updateMenuItems(updateID, productUpdate): any {
+    return this.httpClient.put(`http://localhost:4000/api/menu/update/${updateID}`, productUpdate, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem('token')
+      })
+    })
+  }
 }

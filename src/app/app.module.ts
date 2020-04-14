@@ -97,6 +97,7 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     CartItemComponent,
 
     ProductItemComponent,
+
   ],
   imports: [
     FlexLayoutModule,

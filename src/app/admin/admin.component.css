@@ -19,3 +19,17 @@
 .sideItem-recipe {
     max-width: 500px;
 }
+
+.fullMenuResultsData {
+    width: 50%;
+    margin: 1rem;
+}
+
+button {
+    width: auto;
+    margin: 1rem;
+}
+
+.editButton {
+    background-color: chartreuse;
+}

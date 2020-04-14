@@ -8,7 +8,9 @@ export class Product {
     category: string;
     preptime: number;
     cooktime: number;
+    productName?: string;
 
+    // tslint:disable-next-line:max-line-length
     constructor(id, name, description = '', price = 99.99, img = 'https://cdn4.iconfinder.com/data/icons/service/500/tableware_plate_knife_fork_heart_cook_cooking_eat_eating_food-512.png', servings, instructions, category, preptime = 99, cooktime = 99) {
         this.id = id;
         this.name = name;
