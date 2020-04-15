@@ -12,6 +12,7 @@ import { CartComponent } from './cart/cart.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 import { AdminComponent } from './admin/admin.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
 
@@ -31,6 +32,10 @@ const routes: Routes = [
     path: 'cart',
     component: CartComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
   },
   {
     path: 'shopping-cart',

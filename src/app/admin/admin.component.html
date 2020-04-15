@@ -1,297 +1,292 @@
-<div class="admin-container">
-    <h2>Full Menu Item Search</h2>
-    <input matInput type="string" [(ngModel)]="entreeItem">
-    <button mat-raised-button color="primary" (click)='fullMenuGet()'>View Menu Item</button>
-    <mat-card class="fullMenuItem-recipe">
-        <mat-card-header>
-            <mat-card-title>Full Menu Item ID</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <li *ngFor='let items of FullMenuResults'>
-                <button mat-stroked-button color='primary' id="selectMenuItem"
-                    (click)='inputFullMenuItem(items.id);fullMenuToggle()'>View
-                    Details</button>
-                {{items.id}}
-                {{items.title}}
-            </li>
-        </mat-card-content>
-        <mat-card class="fullMenuItemCard" *ngIf='showCard'>
+<div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <div class="item item-1" fxFlex="30%">
+
+        <h2>Full Menu Item Search</h2>
+        <input matInput type="string" [(ngModel)]="entreeItem">
+        <button mat-raised-button color="primary" (click)='fullMenuGet()'>View Menu Item</button>
+        <mat-card class="fullMenuItem-recipe">
             <mat-card-header>
-                <mat-card-title>Recipe</mat-card-title>
+                <mat-card-title>Full Menu Item ID</mat-card-title>
             </mat-card-header>
-            <h3>{{Food.recipe_servings}} servings</h3>
-            <img mat-card-image src="{{Food.recipe_image}}" alt="Photo">
             <mat-card-content>
-                <h2>Ingredients</h2>
-                <ul>
-                    <li *ngFor='let ingredient of Food.recipe_ingredients'>
-                        {{ingredient.originalString}}
-                    </li>
-                </ul>
-                <br>
-                <h2>Instructions</h2>
-                <ul>
-                    <li *ngFor='let instruction of Food.recipe_instructions'>
-                        {{instruction.step}}
-                    </li>
-                    <li>
-                        Recipe will take a total of {{Food.recipe_cooktime}} minutes to cook.
-                    </li>
-                </ul>
-                <h3>Price</h3>
-                <input matInput placeholder="Price" type="string" [(ngModel)]="price">
-                <br>
-                <br>
-                <mat-label>Select an category</mat-label>
-                <br>
-                <mat-select disableRipple [(ngModel)]="category">
-                    <mat-option value="Steak">Steak</mat-option>
-                    <mat-option value="Chicken">Chicken</mat-option>
-                    <mat-option value="Pork">Pork</mat-option>
-                    <mat-option value="Seafood">Seafood</mat-option>
-                    <mat-option value="Vegetable">Vegetables</mat-option>
-                    <mat-option value="Beef">Beef</mat-option>
-                    <mat-option value="Vegan">Vegan</mat-option>
-                </mat-select>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-stroked-button color='primary' (click)='postMenu()'>Send to Menu</button>
-            </mat-card-actions>
-        </mat-card>
-    </mat-card>
-    <br>
-    <br>
-    <!-- <h2>Full Menu Item</h2>
-    <mat-label>Entree Item</mat-label>
-    <input matInput type="string" id="entreeItemSearch" [(ngModel)]="entreeItem">
-    <br>
-    <br>
-    <button mat-raised-button color="primary" (click)='fullMenuGet();fullMenuToggle()'>View Recipe</button>
-    <br>
-    <mat-card class="recipeID-card" *ngIf='showCard'>
-        <mat-card-header>
-            <mat-card-title>{{FullMenuResults.title}}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="{{FullMenuResults.image}}" alt="Photo">
-        <mat-card-content>
-            <h2>Ingredients</h2>
-            <ul>
-                <li *ngFor='let ingredient of Food.recipe_ingredients'>
-                    {{ingredient.originalString}}
+                <li *ngFor='let items of FullMenuResults'>
+                    <button mat-stroked-button color='primary' id="selectMenuItem"
+                        (click)='inputFullMenuItem(items.id);fullMenuToggle()'>View
+                        Details</button>
+                    {{items.id}}
+                    {{items.title}}
                 </li>
-            </ul>
-            <br>
-            <h2>Instructions</h2>
-            <ul>
-                <li *ngFor='let instruction of Food.recipe_instructions'>
-                    {{instruction.step}}
-                </li>
-                <li>
-                    Recipe will take a total of {{Food.recipe_cooktime}} minutes to cook.
-                </li>
-            </ul>
-            <h3>Price</h3>
-            <input matInput placeholder="Price" type="string" [(ngModel)]="price">
-            <br>
-            <br>
-            <mat-label>Select an category</mat-label>
-            <br>
-            <mat-select disableRipple [(ngModel)]="category">
-                <mat-option value="Steak">Steak</mat-option>
-                <mat-option value="Chicken">Chicken</mat-option>
-                <mat-option value="Pork">Pork</mat-option>
-                <mat-option value="Seafood">Seafood</mat-option>
-                <mat-option value="Vegetable">Vegetables</mat-option>
-                <mat-option value="Beef">Beef</mat-option>
-                <mat-option value="Vegan">Vegan</mat-option>
-            </mat-select>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-button (click)='postMenu()'>Send to Menu</button>
-            <button mat-button>SHARE</button>
-        </mat-card-actions>
-    </mat-card> -->
-    <br>
-    <h2>Find Main Course</h2>
-    <mat-label>Main Course</mat-label>
-    <input matInput placeholder="Steak, Chicken, Shrimp, Fish, etc." type="string" [(ngModel)]="mainCourse">
-    <br>
-    <button mat-raised-button color="primary" (click)='findMainCourse()'>Look Recipie ID
-        Up</button>
-    <mat-card class="mainCourse-recipeSearch">
-        <mat-card-header>
-            <mat-card-title>Main Course Recipe ID</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <li *ngFor='let items of MenuResults'>
-                <button mat-stroked-button color='primary' id="selectMain"
-                    (click)='inputMainCourseItem(items.id);entreeMenuToggle()'>Select
-                    Entree</button> {{items.id}}
-                {{items.title}}
-            </li>
-        </mat-card-content>
-        <mat-card class="mainCourse-search" *ngIf='showCard2'>
-            <mat-card-header>
-                <mat-card-title>Entree Recipe</mat-card-title>
-            </mat-card-header>
-            <h3>{{Food.recipe_servings}} servings</h3>
-            <img mat-card-image src="{{Food.recipe_image}}" alt="Photo">
-            <mat-card-content>
-                <h2>Ingredients</h2>
-                <ul>
-                    <li *ngFor='let ingredient of Food.recipe_ingredients'>
-                        {{ingredient.originalString}}
-                    </li>
-                </ul>
-                <br>
-                <h2>Instructions</h2>
-                <ul>
-                    <li *ngFor='let instruction of Food.recipe_instructions'>
-                        {{instruction.step}}
-                    </li>
-                    <li>
-                        Recipe will take a total of {{Food.recipe_cooktime}} minutes to cook.
-                    </li>
-                </ul>
-                <h3>Price</h3>
-                <input matInput placeholder="Price" type="string" [(ngModel)]="price">
-                <br>
-                <br>
-                <mat-label>Select an category</mat-label>
-                <br>
-                <mat-select disableRipple [(ngModel)]="category">
-                    <mat-option value="Entree">Entree</mat-option>
-                    <mat-option value="Side">Side</mat-option>
-                </mat-select>
             </mat-card-content>
-            <mat-card-actions>
-                <button mat-stroked-button color='primary' (click)='postMenu()'>Send to Entree to Menu</button>
-            </mat-card-actions>
-        </mat-card>
-    </mat-card>
-    <br>
-    <br>
-    <h2>Find Side Dish</h2>
-    <input matInput placeholder="Salad, Potatoes, Vegetables, etc." type="string" [(ngModel)]="sideDish">
-    <button mat-raised-button color="primary" (click)='findSideDish()'>View Side Item</button>
-    <mat-card class="sideItem-recipe">
-        <mat-card-header>
-            <mat-card-title>Side Item ID</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <li *ngFor='let items of SideMenuResults'>
-                <button mat-stroked-button color='primary' id="selectSide"
-                    (click)='inputSideItem(items.id);sideItemToggle()'>Select
-                    Side</button>
-                {{items.id}}
-                {{items.title}}
-            </li>
-        </mat-card-content>
-        <mat-card class="sideItem-recipeSearch" *ngIf='showCard3'>
-            <mat-card-header>
-                <mat-card-title>Side Item Recipe</mat-card-title>
-            </mat-card-header>
-            <h3>{{Food.recipe_servings}} servings</h3>
-            <img mat-card-image src="{{Food.recipe_image}}" alt="Photo">
-            <mat-card-content>
-                <h2>Ingredients</h2>
-                <ul>
-                    <li *ngFor='let ingredient of Food.recipe_ingredients'>
-                        {{ingredient.originalString}}
-                    </li>
-                </ul>
-                <br>
-                <h2>Instructions</h2>
-                <ul>
-                    <li *ngFor='let instruction of Food.recipe_instructions'>
-                        {{instruction.step}}
-                    </li>
-                    <li>
-                        Recipe will take a total of {{Food.recipe_cooktime}} minutes to cook.
-                    </li>
-                </ul>
-                <h3>Price</h3>
-                <input matInput placeholder="Price" type="string" [(ngModel)]="price">
-                <br>
-                <br>
-                <mat-label>Select an category</mat-label>
-                <br>
-                <mat-select disableRipple [(ngModel)]="category">
-                    <mat-option value="Entree">Entree</mat-option>
-                    <mat-option value="Side">Side</mat-option>
-                </mat-select>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-stroked-button color='primary' (click)='postMenu()'>Send to Side to Menu</button>
-            </mat-card-actions>
-        </mat-card>
-    </mat-card>
-    <br>
-    <h2>Current Menu</h2>
-    <button mat-raised-button color="primary" (click)='pullFullMenu(); editFullMenuToggle()'>Edit Menu</button>
-    <br>
-    <mat-card class="fullMenuResultsData" *ngFor='let items of ViewMenu'>
-        <!-- <mat-card-content> -->
-        <!-- <li *ngFor='let items of ViewMenu'> -->
-        <!-- {{items.id}} -->
-        <!-- {{items.name}} -->
-        <!-- {{items.img}} -->
-        <!-- {{items.category}} -->
-        <!-- {{items.price}} -->
-        <!-- <button mat-stroked-button color='primary' id="ViewMenu">Edit/Delete Item</button> -->
-        <!-- </li> -->
-        <!-- </mat-card-content> -->
-        <div *ngIf='isEditable == false'>
-            <mat-card-header>
-                <mat-card-title>{{items.name}}</mat-card-title>
-            </mat-card-header>
-            <img mat-card-image src={{items.img}} alt="Photo of a {{items.name}}">
-            <mat-card-content>
-                <p>
-                    Category: {{items.category}}
+            <mat-card class="fullMenuItemCard" *ngIf='showCard'>
+                <mat-card-header>
+                    <mat-card-title>Recipe</mat-card-title>
+                </mat-card-header>
+                <h3>{{Food.recipe_servings}} servings</h3>
+                <img mat-card-image src="{{Food.recipe_image}}" alt="Photo">
+                <mat-card-content>
+                    <h2>Ingredients</h2>
+                    <ul>
+                        <li *ngFor='let ingredient of Food.recipe_ingredients'>
+                            {{ingredient.originalString}}
+                        </li>
+                    </ul>
                     <br>
-                    Price: {{items.price | currency :"USD"}}
+                    <h2>Instructions</h2>
+                    <ul>
+                        <li *ngFor='let instruction of Food.recipe_instructions'>
+                            {{instruction.step}}
+                        </li>
+                        <li>
+                            Recipe will take a total of {{Food.recipe_cooktime}} minutes to cook.
+                        </li>
+                    </ul>
+                    <h3>Price</h3>
+                    <input matInput placeholder="Price" type="string" [(ngModel)]="price">
                     <br>
-                    Server ID: {{items.id}}
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button class="editButton" mat-icon-button color='primary' (click)='editCard()'>
-                    EDIT
-                    <mat-icon>edit</mat-icon>
-                </button>
-                <!-- <button mat-button (click)='deleteCard(items.id)'>DELETE</button> -->
-                <button mat-icon-button color="warn" (click)='deleteCard(items.id)'>
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </mat-card-actions>
-        </div>
-        <div *ngIf='isEditable'>
+                    <br>
+                    <mat-label id="catSelector" >Select an category</mat-label>
+                    <br>
+                    <mat-select id="catSelector2" disableRipple [(ngModel)]="category">
+                        <mat-option value="Steak">Steak</mat-option>
+                        <mat-option value="Chicken">Chicken</mat-option>
+                        <mat-option value="Pork">Pork</mat-option>
+                        <mat-option value="Seafood">Seafood</mat-option>
+                        <mat-option value="Vegetable">Vegetables</mat-option>
+                        <mat-option value="Beef">Beef</mat-option>
+                        <mat-option value="Vegan">Vegan</mat-option>
+                    </mat-select>
+                </mat-card-content>
+                <br>
+                <mat-card-actions>
+                    <button mat-stroked-button color='primary' (click)='postMenu()'>Send to Menu</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-card>
+
+
+    </div>
+
+
+
+    <div class="item item-2" fxFlex="30%">
+
+        <h2>Find Main Course</h2>
+        <mat-label>Main Course</mat-label>
+        <input matInput placeholder="Steak, Chicken, Shrimp, Fish, etc." type="string" [(ngModel)]="mainCourse">
+        <br>
+        <button mat-raised-button color="primary" (click)='findMainCourse()'>Look Recipie ID
+            Up</button>
+        <mat-card class="mainCourse-recipeSearch">
+
             <mat-card-header>
-                <mat-card-title>{{items.name}}</mat-card-title>
+                <mat-card-title>Main Course Recipe ID</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src={{items.img}} alt="Photo of a {{items.name}}">
             <mat-card-content>
-                <input matInput placeholder="Price" type="string" [(ngModel)]="price">
-                <mat-select disableRipple [(ngModel)]="category">
-                    <mat-option value="Steak">Steak</mat-option>
-                    <mat-option value="Chicken">Chicken</mat-option>
-                    <mat-option value="Pork">Pork</mat-option>
-                    <mat-option value="Seafood">Seafood</mat-option>
-                    <mat-option value="Vegetable">Vegetables</mat-option>
-                    <mat-option value="Beef">Beef</mat-option>
-                    <mat-option value="Vegan">Vegan</mat-option>
-                    <mat-option value="Entree">Entree</mat-option>
-                    <mat-option value="Side">Side</mat-option>
-                </mat-select>
+                <li *ngFor='let items of MenuResults'>
+                    <button mat-stroked-button color='primary' id="selectMain"
+                        (click)='inputMainCourseItem(items.id);entreeMenuToggle()'>Select
+                        Entree</button> {{items.id}}
+                    {{items.title}}
+                </li>
             </mat-card-content>
-            <mat-card-actions>
-                <button class="editButton" mat-icon-button color='primary'
-                    (click)='updateMenu(items.id, {menu: {price: price, category: category}})'>
-                    Update Menu
-                    <mat-icon>edit</mat-icon>
-                </button>
-            </mat-card-actions>
-        </div>
-    </mat-card>
+            <mat-card class="mainCourse-search" *ngIf='showCard2'>
+                <mat-card-header>
+                    <mat-card-title>Entree Recipe</mat-card-title>
+                </mat-card-header>
+                <h3>{{Food.recipe_servings}} servings</h3>
+                <img mat-card-image src="{{Food.recipe_image}}" alt="Photo">
+                <mat-card-content>
+                    <h2>Ingredients</h2>
+                    <ul>
+                        <li *ngFor='let ingredient of Food.recipe_ingredients'>
+                            {{ingredient.originalString}}
+                        </li>
+                    </ul>
+                    <br>
+                    <h2>Instructions</h2>
+                    <ul>
+                        <li *ngFor='let instruction of Food.recipe_instructions'>
+                            {{instruction.step}}
+                        </li>
+                        <li>
+                            Recipe will take a total of {{Food.recipe_cooktime}} minutes to cook.
+                        </li>
+                    </ul>
+                    <h3>Price</h3>
+                    <input matInput placeholder="Price" type="string" [(ngModel)]="price">
+                    <br>
+                    <br>
+                    <mat-label>Select an category</mat-label>
+                    <br>
+                    <mat-select disableRipple [(ngModel)]="category">
+                        <mat-option value="Entree">Entree</mat-option>
+                        <mat-option value="Side">Side</mat-option>
+                    </mat-select>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-stroked-button color='primary' (click)='postMenu()'>Send to Entree to Menu</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-card>
+
+
+    </div>
+
+
+
+
+    <div class="item item-3" fxFlex="30%" >
+
+        <h2>Find Side Dish</h2>
+        <input matInput placeholder="Salad, Potatoes, Vegetables, etc." type="string" [(ngModel)]="sideDish">
+        <button mat-raised-button color="primary" (click)='findSideDish()'>View Side Item</button>
+        <mat-card class="sideItem-recipe">
+            <mat-card-header>
+                <mat-card-title>Side Item ID</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <li *ngFor='let items of SideMenuResults'>
+                    <button mat-stroked-button color='primary' id="selectSide"
+                        (click)='inputSideItem(items.id);sideItemToggle()'>Select
+                        Side</button>
+                    {{items.id}}
+                    {{items.title}}
+                </li>
+            </mat-card-content>
+            <mat-card class="sideItem-recipeSearch" *ngIf='showCard3'>
+                <mat-card-header>
+                    <mat-card-title>Side Item Recipe</mat-card-title>
+                </mat-card-header>
+                <h3>{{Food.recipe_servings}} servings</h3>
+                <img mat-card-image src="{{Food.recipe_image}}" alt="Photo">
+                <mat-card-content>
+                    <h2>Ingredients</h2>
+                    <ul>
+                        <li *ngFor='let ingredient of Food.recipe_ingredients'>
+                            {{ingredient.originalString}}
+                        </li>
+                    </ul>
+                    <br>
+                    <h2>Instructions</h2>
+                    <ul>
+                        <li *ngFor='let instruction of Food.recipe_instructions'>
+                            {{instruction.step}}
+                        </li>
+                        <li>
+                            Recipe will take a total of {{Food.recipe_cooktime}} minutes to cook.
+                        </li>
+                    </ul>
+                    <h3>Price</h3>
+                    <input matInput placeholder="Price" type="string" [(ngModel)]="price">
+                    <br>
+                    <br>
+                    <mat-label>Select an category</mat-label>
+                    <br>
+                    <mat-select disableRipple [(ngModel)]="category">
+                        <mat-option value="Entree">Entree</mat-option>
+                        <mat-option value="Side">Side</mat-option>
+                    </mat-select>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-stroked-button color='primary' (click)='postMenu()'>Send to Side to Menu</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-card>
+
+    </div>
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>Current Menu</h2>
+<button mat-raised-button color="primary" (click)='pullFullMenu()'>Edit Menu</button>
+
+<div class="container" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <div class="item item-4" fxLayout="row wrap">
+
+        <mat-card fxFlex="25%" class="fullMenuResultsData" *ngFor='let items of ViewMenu'>
+            <!-- <mat-card-content> -->
+            <!-- <li *ngFor='let items of ViewMenu'> -->
+            <!-- {{items.id}} -->
+            <!-- {{items.name}} -->
+            <!-- {{items.img}} -->
+            <!-- {{items.category}} -->
+            <!-- {{items.price}} -->
+            <!-- <button mat-stroked-button color='primary' id="ViewMenu">Edit/Delete Item</button> -->
+            <!-- </li> -->
+            <!-- </mat-card-content> -->
+            <div *ngIf='isEditable == false'>
+                <mat-card-header>
+                    <mat-card-title>{{items.name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src={{items.img}} alt="Photo of a {{items.name}}">
+                <mat-card-content>
+                    <p>
+                        Category: {{items.category}}
+                        <br>
+                        Price: {{items.price | currency :"USD"}}
+                        <br>
+                        Server ID: {{items.id}}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button class="editButton" mat-stroked-button color="warn" (click)='editCard()'>
+                        EDIT
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <!-- <button mat-button (click)='deleteCard(items.id)'>DELETE</button> -->
+                    <button mat-stroked-button color="warn" (click)='deleteCard(items.id)'>
+                        DELETE
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </div>
+            <div *ngIf='isEditable'>
+                <mat-card-header>
+                    <mat-card-title>{{items.name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src={{items.img}} alt="Photo of a {{items.name}}">
+                <mat-card-content>
+                    <input matInput placeholder="Price" type="string" [(ngModel)]="price">
+                    <mat-select disableRipple [(ngModel)]="category">
+                        <mat-option value="Steak">Steak</mat-option>
+                        <mat-option value="Chicken">Chicken</mat-option>
+                        <mat-option value="Pork">Pork</mat-option>
+                        <mat-option value="Seafood">Seafood</mat-option>
+                        <mat-option value="Vegetable">Vegetables</mat-option>
+                        <mat-option value="Beef">Beef</mat-option>
+                        <mat-option value="Vegan">Vegan</mat-option>
+                        <mat-option value="Entree">Entree</mat-option>
+                        <mat-option value="Side">Side</mat-option>
+                    </mat-select>
+                </mat-card-content>
+                <mat-card-actions>
+
+                    <button class="editButton" mat-stroked-button color="warn"
+                        (click)='updateMenu(items.id, {menu: {price: price, category: category}})'>
+                        Update Menu
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </div>
+        </mat-card>
+    </div>

@@ -67,6 +67,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -97,6 +98,8 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     CartItemComponent,
 
     ProductItemComponent,
+
+    AboutComponent,
 
   ],
   imports: [
