@@ -228,7 +228,7 @@
     </mat-card>
     <br>
     <h2>Current Menu</h2>
-    <button mat-raised-button color="primary" (click)='pullFullMenu()'>Edit Menu</button>
+    <button mat-raised-button color="primary" (click)='pullFullMenu(); editFullMenuToggle()'>Edit Menu</button>
     <br>
     <mat-card class="fullMenuResultsData" *ngFor='let items of ViewMenu'>
         <!-- <mat-card-content> -->

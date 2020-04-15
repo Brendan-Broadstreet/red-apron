@@ -19,6 +19,7 @@ export class AdminComponent implements OnInit {
   showCard = false;
   showCard2 = false;
   showCard3 = false;
+  showCard4 = false;
   recipeID: string;
   mainCourse: string;
   sideDish: string;
@@ -139,18 +140,28 @@ export class AdminComponent implements OnInit {
     this.showCard = true;
     this.showCard2 = false;
     this.showCard3 = false;
+    this.showCard4 = false;
   }
 
   entreeMenuToggle() {
     this.showCard = false;
     this.showCard2 = true;
     this.showCard3 = false;
+    this.showCard4 = false;
   }
 
   sideItemToggle() {
     this.showCard = false;
     this.showCard2 = false;
     this.showCard3 = true;
+    this.showCard4 = false;
+  }
+
+  editFullMenuToggle() {
+    this.showCard = false;
+    this.showCard2 = false;
+    this.showCard3 = false;
+    this.showCard4 = true;
   }
 
   pullFullMenu() {
