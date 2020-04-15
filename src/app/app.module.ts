@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -109,7 +109,7 @@ import { ProductItemComponent } from './components/shopping-cart/product-list/pr
     MatButtonModule,
     MatInputModule,
     FormsModule,
-
+    ReactiveFormsModule,
 
     MatCheckboxModule,
     MatButtonModule,
