@@ -1,12 +1,21 @@
-<br>
-<input type="text" [(ngModel)]="firstname" name="firstname" placeholder="firstname" required>
-<input type="text" [(ngModel)]="lastname" name="lastname" placeholder="lastname" required>
-<input type="text" [(ngModel)]="username" name="username" placeholder="username" required>
-<input type="email" [(ngModel)]="email" name="email" placeholder="email" required>
-<input type="password" [(ngModel)]="password" name="password" placeholder="password" required>
-<input type="text" [(ngModel)]="challengequestion" name="challengequestion" placeholder="challengequestion" required>
-<button (click)="signup()">Click to signup</button>
-<hr>
-<p>Already have an account?</p>
-<a href="login">Go To Login</a>
-<hr>
+
+<div class="medium-list">
+  <div class="list-viewer-wrapper">
+    <div class="list-header-title">
+      <h1><strong>Sign Up</strong></h1>
+    </div>
+    <form>
+      <div class="form-container">
+        <div>
+          <input type="email" [(ngModel)]="email" name="email" placeholder="email" required>
+          <!-- <label>Email Address</label> -->
+        </div>
+        <div>
+          <input type="password" [(ngModel)]="password" name="password" placeholder="password" required>
+          <!-- <label>Password</label> -->
+        </div>
+        <button mat-button mat-raised-button (click)="signup()">Click to sign up</button>
+      </div>
+    </form>
+  </div>
+</div>

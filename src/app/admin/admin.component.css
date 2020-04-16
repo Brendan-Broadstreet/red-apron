@@ -1,35 +1,39 @@
-.api-endpoint {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
+.container{
+    background-color: darkgray;
+}
+.item-1{
+    background-color: black;
+    border: 2px solid crimson;
+    color: blanchedalmond;
+}
+.item-2{
+    background-color: black;
+    border: 2px solid red;
+    color: blanchedalmond;
+}
+.item-3{
+    background-color: black;
+    border: 2px solid crimson;
+    color: blanchedalmond;
+}  
+.item-4{
+    background-color: black;
+    border: 2px solid red;
+    color: blanchedalmond;
+    min-width: 20%;
+}
+.item-5{
+    background-color: black;
+    border: red;
+    color: blanchedalmond;   
 }
 
-.admin-container {
-    background-color: #696969;
-}
-
-.recipeID-card {
-    max-width: 750px;
-}
-
-.mainCourse-recipeSearch {
-    max-width: 750px;
-}
-
-.sideItem-recipe {
-    max-width: 500px;
-}
-
-.fullMenuResultsData {
-    width: 50%;
+.fullMenuResultsData{
     margin: 1rem;
+    margin-left: 5rem;
 }
 
-button {
-    width: auto;
-    margin: 1rem;
+#catSelector{
+    color: white;
 }
 
-.editButton {
-    background-color: chartreuse;
-}
