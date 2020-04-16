@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FullMenuData } from './menu';
+import { APIURL } from 'src/environments/environment.prod';
 
 
 
@@ -49,12 +50,12 @@ export class ApiService {
   }
 
   getMenu(): any {
-    return this.httpClient.get('http://localhost:4000/api/menu/myrecipes');
+    return this.httpClient.get(`${APIURL}/api/menu/myrecipes`);
   }
 
 
   deleteMenuItem(cardID): any {
-    return this.httpClient.delete(`http://localhost:4000/api/menu/delete/${cardID}`, {
+    return this.httpClient.delete(`${APIURL}/api/menu/delete/${cardID}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
@@ -63,7 +64,7 @@ export class ApiService {
   }
 
   updateMenuItems(updateID, productUpdate): any {
-    return this.httpClient.put(`http://localhost:4000/api/menu/update/${updateID}`, productUpdate, {
+    return this.httpClient.put(`${APIURL}/api/menu/update/${updateID}`, productUpdate, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': localStorage.getItem('token')
