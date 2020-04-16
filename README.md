@@ -4,7 +4,7 @@ Red Apron is an app that connects busy individuals and families to chef inspired
 
 
 ## Red Apron Client
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
 ### Install Angular from NPM
 1. Install a stable version of Node (if not already installed) and verify the installation using node -v.
