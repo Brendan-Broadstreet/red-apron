@@ -3,7 +3,10 @@
 
         <h2>Full Menu Item Search</h2>
         <input matInput type="string" [(ngModel)]="entreeItem">
+        <br>
+        <br>
         <button mat-raised-button color="primary" (click)='fullMenuGet()'>View Menu Item</button>
+        <br>
         <mat-card class="fullMenuItem-recipe">
             <mat-card-header>
                 <mat-card-title>Full Menu Item ID</mat-card-title>
@@ -72,7 +75,9 @@
 
         <h2>Find Main Course</h2>
         <mat-label>Main Course</mat-label>
+        <br>
         <input matInput placeholder="Steak, Chicken, Shrimp, Fish, etc." type="string" [(ngModel)]="mainCourse">
+        <br>
         <br>
         <button mat-raised-button color="primary" (click)='findMainCourse()'>Look Recipie ID
             Up</button>
@@ -139,6 +144,8 @@
 
         <h2>Find Side Dish</h2>
         <input matInput placeholder="Salad, Potatoes, Vegetables, etc." type="string" [(ngModel)]="sideDish">
+        <br>
+        <br>
         <button mat-raised-button color="primary" (click)='findSideDish()'>View Side Item</button>
         <mat-card class="sideItem-recipe">
             <mat-card-header>
@@ -216,14 +223,16 @@
 
 
 
-
+<br>
 <h2>Current Menu</h2>
 <button mat-raised-button color="primary" (click)='pullFullMenu()'>Edit Menu</button>
+<br>
+<br>
 
 <div class="container" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
     <div class="item item-4" fxLayout="row wrap">
 
-        <mat-card fxFlex="25%" class="fullMenuResultsData" *ngFor='let items of ViewMenu'>
+        <mat-card fxFlex="25%" fxFlex.xs="50%"class="fullMenuResultsData" *ngFor='let items of ViewMenu'>
             <!-- <mat-card-content> -->
             <!-- <li *ngFor='let items of ViewMenu'> -->
             <!-- {{items.id}} -->

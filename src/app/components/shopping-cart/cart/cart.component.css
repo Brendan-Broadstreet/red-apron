@@ -11,3 +11,7 @@ hr{
 .deleteCartItemButton {
     margin-right: 1rem;
 }
+
+.alert-info{
+    margin-top: 1rem;
+}

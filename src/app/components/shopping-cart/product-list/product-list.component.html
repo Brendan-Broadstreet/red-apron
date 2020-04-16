@@ -1,4 +1,4 @@
-<div class="container" fxLayout="row wrap">
+<div class="container" fxLayout="row wrap"  fxLayout.xs="column"  fxLayoutAlign="left"  fxLayoutGap.xs="0">
     <div fxFlex="25%" *ngFor="let product of productList" id="inBetween" >
         <app-product-item [productItem]="product" id="theItem" [addedToFavlist]="favlist.indexOf(product.id) >= 0" ></app-product-item>
     </div>
